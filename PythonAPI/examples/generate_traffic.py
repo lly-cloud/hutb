@@ -362,10 +362,11 @@ def main():
         time.sleep(0.5)
 
 if __name__ == '__main__':
-
     try:
         main()
     except KeyboardInterrupt:
-        pass
+        # 优化：用户主动退出时给出清晰提示
+        logging.info("Program stopped by user (Ctrl+C)")
     finally:
-        print('\ndone.')
+        # 优化：统一使用日志输出，规范程序结束提示
+        logging.info("Program execution completed.")
